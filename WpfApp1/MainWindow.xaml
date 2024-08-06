@@ -1,0 +1,244 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="#FFECF9EF">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" OpacityMask="#FFFBC5C5" >
+            <StackPanel Orientation="Horizontal" AutomationProperties.AutomationId="masterPanel">
+                <TabControl>
+                    <TabItem Header="Источник">
+                        <Expander Header="Элементы">
+                            <StackPanel Orientation="Horizontal" >
+                                <DataGrid x:Name="DGV1" AutoGenerateColumns="False" ItemsSource="{Binding DGV1DataList}" CanUserAddRows="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTemplateColumn Header="Выбрано">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <CheckBox IsChecked="{Binding IsChecked, UpdateSourceTrigger=PropertyChanged}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTextColumn Header="Текст" Binding="{Binding Text}" />
+                                        <DataGridTemplateColumn Header="Опция">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <ComboBox ItemsSource="{Binding DataContext.DGV1Options, RelativeSource={RelativeSource AncestorType=Window}}"
+                                      SelectedItem="{Binding SelectedOption, UpdateSourceTrigger=PropertyChanged}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <Button Margin="5,0,5,0" MaxHeight ="25" VerticalAlignment="Top" Click="Button_Click">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source=".\img\save.png" Stretch="Fill"  Width="20" Height="20" Margin="5,0,5,0"/>
+                                        <TextBlock Text ="Сохранить" Margin="0,0,5,0"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Margin="5,0,5,0" MaxHeight ="25" VerticalAlignment="Top" Click="Button_Click_1">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source=".\img\download.png" Stretch="Fill"  Width="20" Height="20" Margin="5,0,5,0"/>
+                                        <TextBlock Text ="Загрузить" Margin="0,0,5,0"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </Expander>
+                    </TabItem>
+                    <TabItem Header="Выгодик">
+                        <Expander Header="Элементы">
+                            <StackPanel Orientation="Horizontal ">
+                                <DataGrid x:Name="DGV2" AutoGenerateColumns="False" ItemsSource="{Binding DGV2DataList}" CanUserAddRows="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTemplateColumn Header="Выбрано">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <CheckBox IsChecked="{Binding IsChecked, UpdateSourceTrigger=PropertyChanged}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTextColumn Header="Текст" Binding="{Binding Text}" />
+                                        <DataGridTemplateColumn Header="Опция">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <ComboBox ItemsSource="{Binding DataContext.DGV2Options, RelativeSource={RelativeSource AncestorType=Window}}"
+      SelectedItem="{Binding SelectedOption, UpdateSourceTrigger=PropertyChanged}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+
+                                <Button Margin="5,0,5,0" MaxHeight ="25" VerticalAlignment="Top" Click="Button_Click_2">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source=".\img\save.png" Stretch="Fill"  Width="20" Height="20" Margin="5,0,5,0"/>
+                                        <TextBlock Text ="Сохранить" Margin="0,0,5,0"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Margin="5,0,5,0" MaxHeight ="25" VerticalAlignment="Top" Click="Button_Click_3">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source=".\img\download.png" Stretch="Fill"  Width="20" Height="20" Margin="5,0,5,0"/>
+                                        <TextBlock Text ="Загрузить" Margin="0,0,5,0"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </Expander>
+                    </TabItem>
+                    <TabItem Header="Транзитер">
+                        <Expander Header="Элементы">
+                            <StackPanel Orientation="Horizontal ">
+                                <DataGrid x:Name="DGV3" AutoGenerateColumns="False" ItemsSource="{Binding DGV3DataList}" CanUserAddRows="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTemplateColumn Header="Выбрано">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <CheckBox IsChecked="{Binding IsChecked, UpdateSourceTrigger=PropertyChanged}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTextColumn Header="Текст" Binding="{Binding Text}" />
+                                        <DataGridTemplateColumn Header="Опция">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <ComboBox ItemsSource="{Binding DataContext.DGV3Options, RelativeSource={RelativeSource AncestorType=Window}}"
+      SelectedItem="{Binding SelectedOption, UpdateSourceTrigger=PropertyChanged}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <Button Margin="5,0,5,0" MaxHeight ="25" VerticalAlignment="Top" Click="Button_Click_4">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source=".\img\save.png" Stretch="Fill"  Width="20" Height="20" Margin="5,0,5,0"/>
+                                        <TextBlock Text ="Сохранить" Margin="0,0,5,0"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Margin="5,0,5,0" MaxHeight ="25" VerticalAlignment="Top" Click="Button_Click_5">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source=".\img\download.png" Stretch="Fill"  Width="20" Height="20" Margin="5,0,5,0"/>
+                                        <TextBlock Text ="Загрузить" Margin="0,0,5,0"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </Expander>
+                    </TabItem>
+
+                </TabControl>
+                <Button Height ="30" MaxHeight ="30" VerticalAlignment="Top" Margin="5,5,5,0" Name="loadButton" Click="loadButton_Click">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source=".\img\download.png" Stretch="Fill"  Width="20" Height="20" Margin="5,0,5,0"/>
+                        <TextBlock Text ="загрузить цепочки" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Content="Собрать таблицы" Height ="30" MaxHeight ="30" VerticalAlignment="Top" Margin="5,5,5,0" Click="Button_Click_15"></Button>
+                <Button Height ="30" MaxHeight ="30" VerticalAlignment="Top" Margin="5,5,5,0" Name="createDoc" Click="createDoc_Click ">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source=".\img\refresh.png" Stretch="Fill" Width="20" Height="20" Margin="5,0,5,0"/>
+                        <TextBlock Text ="сформировать документ" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row ="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+               
+            </Grid>
+            <Grid Grid.Row="1">     
+                    <TabControl>
+                        <TabItem Header="Источник">
+                            <StackPanel Orientation="Vertical">
+                                <ToolBar BorderBrush="Black" Background="#FFD5E5F7">
+                                <Button BorderBrush="#FF8EE0F5" Margin="5,0,5,0" Background="#FFB4F5CD" Click="Button_Click_6" >
+                                        <StackPanel Orientation="Horizontal" >
+                                            <Image Source=".\img\check.png" Stretch="Fill" Width="20" Height="20" Margin="5,0,5,0"/>
+                                            <TextBlock Text ="пересчитать графы" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button BorderBrush="#FF8EE0F5" Margin="5,0,5,0" RenderTransformOrigin="0,1" Click="Button_Click_9" >
+                                        <StackPanel Orientation="Horizontal" Background="#FFB4F5CD" >
+                                            <Image Source=".\img\calendar.png" Stretch="Fill" Width="20" Height="20" Margin="5,0,5,0"/>
+                                            <TextBlock Text ="создать задание" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source=".\img\exclamation.png" Stretch="Fill" Width="20" Height="20" Margin="5,0,5,0"/>
+                                        <Label Name="sourceHelper" Content="helper"></Label>
+                                    <Button Content="собрать файлы?" Click="Button_Click_12" Name="buttonSource" Visibility="Collapsed"></Button>
+                                    </StackPanel>
+                                </ToolBar>
+                            <DataGrid Name="Datagridsource">
+                                    
+                               </DataGrid>
+                            </StackPanel>
+                        </TabItem>
+                        
+                        <TabItem Header="Выгодник">
+                        <StackPanel Orientation="Vertical">
+                            <ToolBar BorderBrush="Black" Background="#FFD5E5F7">
+                                <Button BorderBrush="#FF8EE0F5" Margin="5,0,5,0" Background="#FFB4F5CD" Click="Button_Click_7 ">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source=".\img\check.png" Stretch="Fill" Width="20" Height="20" Margin="5,0,5,0"/>
+                                        <TextBlock Text ="пересчитать графы" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button BorderBrush="#FF8EE0F5" Margin="5,0,5,0" RenderTransformOrigin="0,1" Click="Button_Click_10">
+                                    <StackPanel Orientation="Horizontal" Background="#FFB4F5CD" >
+                                        <Image Source=".\img\calendar.png" Stretch="Fill" Width="20" Height="20" Margin="5,0,5,0"/>
+                                        <TextBlock Text ="создать задание" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <StackPanel Orientation="Horizontal" >
+                                    <Image Source=".\img\exclamation.png" Stretch="Fill" Width="20" Height="20" Margin="5,0,5,0"/>
+                                    <Label Name="beneficiaryHelper" Content="helper"></Label>
+                                    <Button Content="собрать файлы?" Click="Button_Click_13" Name="buttonBeneficiary" Visibility="Collapsed"></Button>
+                                </StackPanel>
+                            </ToolBar>
+                            <DataGrid Name="Datagridbeneficiary">
+
+                            </DataGrid>
+                        </StackPanel>
+                    </TabItem>
+                        <TabItem Header="Транзитер">
+                        <StackPanel Orientation="Vertical">
+                            <ToolBar BorderBrush="Black" Background="#FFD5E5F7">
+                                <Button BorderBrush="#FF8EE0F5" Margin="5,0,5,0" Background="#FFB4F5CD" Click="Button_Click_8 ">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Image Source=".\img\check.png" Stretch="Fill" Width="20" Height="20" Margin="5,0,5,0"/>
+                                        <TextBlock Text ="пересчитать графы" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button BorderBrush="#FF8EE0F5" Margin="5,0,5,0" RenderTransformOrigin="0,1" Click="Button_Click_11" >
+                                    <StackPanel Orientation="Horizontal" Background="#FFB4F5CD" >
+                                        <Image Source=".\img\calendar.png" Stretch="Fill" Width="20" Height="20" Margin="5,0,5,0"/>
+                                        <TextBlock Text ="создать задание" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <StackPanel Orientation="Horizontal" >
+                                    <Image Source=".\img\exclamation.png" Stretch="Fill" Width="20" Height="20" Margin="5,0,5,0"/>
+                                    <Label Name="transitHelper" Content="helper"></Label>
+                                    <Button Content="собрать файлы?" Name="buttonTransit" Click="Button_Click_14" Visibility="Collapsed"></Button>
+                                </StackPanel>
+                            </ToolBar>
+                            <DataGrid Name="Datagridtransit">
+
+                            </DataGrid>
+                        </StackPanel>
+                    </TabItem>
+                    </TabControl>         
+               
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
