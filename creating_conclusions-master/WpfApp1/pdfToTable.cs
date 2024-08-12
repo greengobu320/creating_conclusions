@@ -161,7 +161,7 @@ namespace WpfApp1
                         }
                         if (zeroValue && dt.Rows.Count - 1 != -1) { dt.Rows.RemoveAt(dt.Rows.Count - 1); }
                         ds.Tables.Add(dt);
-                        tableCount++;
+                        tableCount++; 
                     }
                 }
             }
